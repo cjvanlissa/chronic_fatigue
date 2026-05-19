@@ -1,0 +1,14 @@
+worcs_version: 0.1.19
+creator: cjvanlissa
+entry_point: manuscript/manuscript.Rmd
+recipe:
+  recipe: targets::tar_make()
+  terminal: no
+data:
+  df.RData:
+    save_expression: saveRDS(object = data, file = "df.RData")
+    load_expression: readRDS("df.RData")
+    codebook: codebook_df.Rmd
+    labels: value_labels_df.yml
+checksums:
+  df.RData: 8f7b959c0339c0ee161dd6279d004470
