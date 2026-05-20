@@ -1,6 +1,6 @@
 Predicting Chronic Fatigue
 ================
-19 May, 2026
+20 May, 2026
 
 This manuscript uses the Workflow for Open Reproducible Code in Science
 (**vanlissaWORCSWorkflowOpen2021?**) to ensure reproducibility and
@@ -27,11 +27,13 @@ rownames(tab_res) <- NULL
 knitr::kable(tab_res, digits = 2)
 ```
 
-|   mse | mse_se | rsq_test | rsq_train | model  |
-|------:|-------:|---------:|----------:|:-------|
-| 15.61 |   0.51 |     0.82 |      0.82 | lasso  |
-| 16.37 |   1.32 |     0.81 |      0.81 | ranger |
-| 24.21 |   3.54 |     0.75 |      0.75 | tree   |
+|   mse | mse_se | rsq_test | rsq_train | model   |
+|------:|-------:|---------:|----------:|:--------|
+| 25.40 |   0.84 |     0.68 |      0.68 | lasso   |
+| 25.76 |   2.54 |     0.68 |      0.68 | ranger  |
+| 31.48 |   2.84 |     0.60 |      0.60 | tree    |
+| 78.37 |   9.76 |     0.03 |      0.03 | nn      |
+| 24.20 |   3.20 |     0.68 |      0.68 | xgboost |
 
 The best performing model (or interpretable model whose cross-validated
 mean squared error was within 1SE of the best model’s cross-validated
