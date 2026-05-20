@@ -45,23 +45,23 @@ list(
   )
   , tar_target(
     name = res_lasso,
-    command = do_lasso(dat, dv = "diff_k_cis4")
+    command = do_lasso(dat, dv = "cis4_nextwave")
   )
   , tar_target(
     name = res_ranger,
-    command = do_ranger(dat, dv = "diff_k_cis4")
+    command = do_ranger(dat, dv = "cis4_nextwave")
   )
   , tar_target(
     name = res_tree,
-    command = do_tree(dat, dv = "diff_k_cis4")
+    command = do_tree(dat, dv = "cis4_nextwave")
   )
   , tar_target(
     name = res_nn,
-    command = do_nn(dat, dv = "diff_k_cis4", epochs = 10) # Change to 500 for real data
+    command = do_nn(dat, dv = "cis4_nextwave", epochs = 10) # Change to 500 for real data
   )
   , tar_target(
     name = res_xgboost,
-    command = do_xgboost_cv(dat, dv = "diff_k_cis4") # Change to 500 for real data
+    command = do_xgboost_cv(dat, dv = "cis4_nextwave") # Change to 500 for real data
   )
   , tar_target(
     name = analysis_results,

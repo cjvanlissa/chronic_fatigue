@@ -29,11 +29,11 @@ knitr::kable(tab_res, digits = 2)
 
 |   mse | mse_se | rsq_test | rsq_train | model   |
 |------:|-------:|---------:|----------:|:--------|
-| 25.40 |   0.84 |     0.68 |      0.68 | lasso   |
-| 25.76 |   2.54 |     0.68 |      0.68 | ranger  |
-| 31.48 |   2.84 |     0.60 |      0.60 | tree    |
-| 78.37 |   9.76 |     0.03 |      0.03 | nn      |
-| 24.20 |   3.20 |     0.68 |      0.68 | xgboost |
+| 42.19 |   1.14 |     0.49 |      0.49 | lasso   |
+| 42.11 |   3.09 |     0.51 |      0.51 | ranger  |
+| 44.22 |   3.48 |     0.48 |      0.48 | tree    |
+| 78.37 |   9.95 |     0.02 |      0.02 | nn      |
+| 42.64 |   3.57 |     0.50 |      0.50 | xgboost |
 
 The best performing model (or interpretable model whose cross-validated
 mean squared error was within 1SE of the best model’s cross-validated

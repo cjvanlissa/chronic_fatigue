@@ -1,4 +1,4 @@
-do_xgboost_cv <- function(dat, dv = "diff_k_cis4"){
+do_xgboost_cv <- function(dat, dv = "cis4_nextwave"){
   library(xgboost) #for fitting the xgboost model
 
   train_x <- model.matrix(as.formula(paste0(dv, " ~.")), dat$train)

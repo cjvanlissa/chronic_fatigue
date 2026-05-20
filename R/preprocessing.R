@@ -47,21 +47,21 @@ preprocessing <- function(df, k = 10){
   df_test[ord] <- NULL
 
   # Make time lagged dv
-  df_train$diff_k_cis4 <- NA
+  df_train$cis4_nextwave <- NA
   for(id in unique(df_train$patientid)){
     #id = df_train$patientid[1]
     rws <- which(df_train$patientid == id)
-    df_train$diff_k_cis4[rws] <- c(diff(df_train$k_cis4[rws]), NA)
+    df_train$cis4_nextwave[rws] <- c(df_train$k_cis4[rws], NA)
   }
-  df_test$diff_k_cis4 <- NA
+  df_test$cis4_nextwave <- NA
   for(id in unique(df_test$patientid)){
     #id = df_test$patientid[1]
     rws <- which(df_test$patientid == id)
-    df_test$diff_k_cis4[rws] <- c(diff(df_test$k_cis4[rws]), NA)
+    df_test$cis4_nextwave[rws] <- c(df_test$k_cis4[rws], NA)
   }
 
-  df_train <- df_train[!is.na(df_train$diff_k_cis4), ]
-  df_test <- df_test[!is.na(df_test$diff_k_cis4), ]
+  df_train <- df_train[!is.na(df_train$cis4_nextwave), ]
+  df_test <- df_test[!is.na(df_test$cis4_nextwave), ]
 
   # Create k-folds ----------------------------------------------------------
   fold <- split(sample(unique(df_train$patientid)), cut(seq_along(unique(df_train$patientid)), k, labels=FALSE))
