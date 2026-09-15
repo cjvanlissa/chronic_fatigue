@@ -1,5 +1,5 @@
 # Tree
-do_tree <- function(dat, dv = "diff_k_cis4"){
+do_tree <- function(dat, dv = "cis4_nextwave"){
   library(rpart)
   X <- model.matrix(as.formula(paste0(dv, "~.")), dat$train)[, -1]
   Y <- as.numeric(dat$train[[dv]])

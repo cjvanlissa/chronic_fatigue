@@ -47,34 +47,21 @@ preprocessing <- function(df, k = 10){
   df_test[ord] <- NULL
 
   # Make time lagged dv
-  df_train$diff_k_cis4 <- NA
+  df_train$cis4_nextwave <- NA
   for(id in unique(df_train$patientid)){
     #id = df_train$patientid[1]
     rws <- which(df_train$patientid == id)
-    df_train$diff_k_cis4[rws] <- c(NA, diff(df_train$k_cis4[rws]))
+    df_train$cis4_nextwave[rws] <- c(df_train$k_cis4[rws], NA)
   }
-  df_test$diff_k_cis4 <- NA
+  df_test$cis4_nextwave <- NA
   for(id in unique(df_test$patientid)){
     #id = df_test$patientid[1]
     rws <- which(df_test$patientid == id)
-    df_test$diff_k_cis4[rws] <- c(NA, diff(df_test$k_cis4[rws]))
+    df_test$cis4_nextwave[rws] <- c(df_test$k_cis4[rws], NA)
   }
 
-  # Make previous level of dv
-  df_train$prev_k_cis4 <- NA
-  for(id in unique(df_train$patientid)){
-    #id = df_train$patientid[1]
-    rws <- which(df_train$patientid == id)
-    df_train$prev_k_cis4[rws] <- c(NA, df_train$k_cis4[rws][-length(rws)])
-  }
-  df_test$prev_k_cis4 <- NA
-  for(id in unique(df_test$patientid)){
-    #id = df_test$patientid[1]
-    rws <- which(df_test$patientid == id)
-    df_test$prev_k_cis4[rws] <- c(NA, df_test$k_cis4[rws][-length(rws)])
-  }
-  df_train <- df_train[!is.na(df_train$diff_k_cis4), ]
-  df_test <- df_test[!is.na(df_test$diff_k_cis4), ]
+  df_train <- df_train[!is.na(df_train$cis4_nextwave), ]
+  df_test <- df_test[!is.na(df_test$cis4_nextwave), ]
 
   # Create k-folds ----------------------------------------------------------
   fold <- split(sample(unique(df_train$patientid)), cut(seq_along(unique(df_train$patientid)), k, labels=FALSE))
@@ -83,8 +70,6 @@ preprocessing <- function(df, k = 10){
   })
   names(all.folds) <- 1:k
 
-  df_train[[dv]] <- NULL
-  df_test[[dv]] <- NULL
   return(
     list(
       train = df_train,

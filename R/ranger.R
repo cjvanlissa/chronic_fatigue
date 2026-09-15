@@ -1,4 +1,4 @@
-do_ranger <- function(dat, dv = "diff_k_cis4"){
+do_ranger <- function(dat, dv = "cis4_nextwave"){
   library(mlr)
   library(tuneRanger)
   library(ranger)

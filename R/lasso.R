@@ -1,5 +1,5 @@
 # LASSO
-do_lasso <- function(dat, dv = "diff_k_cis4"){
+do_lasso <- function(dat, dv = "cis4_nextwave"){
   X <- model.matrix(as.formula(paste0(dv, "~.")), dat$train)[, -1]
   Y <- as.numeric(dat$train[[dv]])
   all.folds <- dat$folds
