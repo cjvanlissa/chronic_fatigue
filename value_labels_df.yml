@@ -1,0 +1,53 @@
+entry_belongs_to:
+  class: factor
+  '1': ''
+  '2': both
+  '3': child
+  '4': parent
+sex:
+  class: factor
+  '1': Female
+  '2': Male
+k_health_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'
+  '3': '2'
+  '4': '3'
+o_education_o_ord:
+  class: ordered
+  '1': low
+  '2': middle
+  '3': high
+k_school_pressure_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'
+  '3': '2'
+  '4': '3'
+k_bullied_freq_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'
+  '3': '2'
+  '4': '3'
+  '5': '4'
+k_schoollevel_fac:
+  class: factor
+  '1': high
+  '2': low secondary
+  '3': middle
+  '4': primary
+  '5': special
+int_disact_cardio_chd_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'
+int_disact_immunodef_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'
+int_disact_auto.inflam_ord:
+  class: ordered
+  '1': '0'
+  '2': '1'

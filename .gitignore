@@ -1,0 +1,22 @@
+.Rhistory
+.Rprofile
+*.csv
+*.sav
+*.sas7bdat
+*.xlsx
+*.xls
+*.pdf
+*.fff
+*.log
+*.tex
+.Rproj.user
+!df.csv
+!codebook_df.csv
+!df.RData
+*.RData
+*.zip
+*.keras
+*.docx
+data/
+_targets/
+RE_ Preregistratie predictie vermoeidheid & chronische ziekte/
